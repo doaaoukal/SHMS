@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/Strategy/BillingStrategy.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/Strategy/RegularPricingStrategy.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/Strategy/MemberDiscountStrategy.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/Strategy/SeasonalPricingStrategy.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/Strategy/BillingContext.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/TemplateMethod/HotelWorkflow.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/TemplateMethod/CheckInWorkflow.java</file>
+            <file>file:/C:/Users/Hp/Downloads/SHMS-master%20(2)/SHMS-master/src/TemplateMethod/CheckOutWorkflow.java</file>
+        </group>
+    </open-files>
+</project-private>
