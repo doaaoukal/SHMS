@@ -1,10 +1,10 @@
-# Smart Hospitality Management System (SHMS)
+# 🏨 Smart Hospitality Management System (SHMS)
 
 > A Java-based hotel management system built on **7 classic design patterns**, developed as a final project for the Software Design & Architecture Lab at the Islamic University of Gaza.
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
 - [Project Overview](#project-overview)
 - [Design Patterns Used](#design-patterns-used)
@@ -19,36 +19,36 @@
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
 The **Smart Hospitality Management System (SHMS)** simulates a modern hotel environment covering:
 
-- Room creation and booking
-- Guest check-in and check-out workflows
-- Event-driven notification system
-- Dynamic billing with multiple pricing strategies
-- Legacy payment system integration
-- Global system configuration
+- 🛏️ Room creation and booking
+- 🚪 Guest check-in and check-out workflows
+- 🔔 Event-driven notification system
+- 💰 Dynamic billing with multiple pricing strategies
+- 🔌 Legacy payment system integration
+- ⚙️ Global system configuration
 
 The system is built around **clean architecture principles**: loose coupling, separation of concerns, and extensibility without modifying existing code.
 
 ---
 
-## Design Patterns Used
+## 🧩 Design Patterns Used
 
 | Pattern | Role in System |
 |---|---|
-| Singleton | Global hotel configuration (Config) |
-| Factory Method | Creating room types (Standard, Deluxe, Suite) |
-| Builder | Constructing complex booking objects step-by-step |
-| Observer | Event-driven notifications to Guest, Staff, Manager |
-| Template Method | Fixed workflow structure for check-in and check-out |
-| Strategy | Dynamic billing: Regular, Member Discount, Seasonal |
-| Adapter | Integrating the legacy payment processor |
+| 🔒 Singleton | Global hotel configuration (Config) |
+| 🏭 Factory Method | Creating room types (Standard, Deluxe, Suite) |
+| 🏗️ Builder | Constructing complex booking objects step-by-step |
+| 👁️ Observer | Event-driven notifications to Guest, Staff, Manager |
+| 📋 Template Method | Fixed workflow structure for check-in and check-out |
+| 💡 Strategy | Dynamic billing: Regular, Member Discount, Seasonal |
+| 🔧 Adapter | Integrating the legacy payment processor |
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
     SHMS/
     └── src/
@@ -95,22 +95,22 @@ The system is built around **clean architecture principles**: loose coupling, se
 
 ---
 
-## System Flow
+## 🔄 System Flow
 
-    1. Config.getInstance()            Load hotel settings       (Singleton)
-    2. DeluxeRoomFactory.createRoom()  Create room               (Factory Method)
-    3. BookingRoom.Builder.build()     Construct booking         (Builder)
-    4. eventManager.publish()          Notify observers          (Observer)
-    5. CheckInWorkflow.execute()       Run check-in steps        (Template Method)
-    6. BillingContext.calculateBill()  Apply pricing strategy    (Strategy)
-    7. PaymentAdapter.processPayment() Pay via legacy system     (Adapter)
-    8. CheckOutWorkflow.execute()      Run check-out steps       (Template Method)
+    1. Config.getInstance()            ⚙️  Load hotel settings       (Singleton)
+    2. DeluxeRoomFactory.createRoom()  🏭  Create room               (Factory Method)
+    3. BookingRoom.Builder.build()     🏗️  Construct booking         (Builder)
+    4. eventManager.publish()          🔔  Notify observers          (Observer)
+    5. CheckInWorkflow.execute()       📋  Run check-in steps        (Template Method)
+    6. BillingContext.calculateBill()  💡  Apply pricing strategy    (Strategy)
+    7. PaymentAdapter.processPayment() 🔧  Pay via legacy system     (Adapter)
+    8. CheckOutWorkflow.execute()      📋  Run check-out steps       (Template Method)
 
 ---
 
-## Classes and Responsibilities
+## 🗂️ Classes and Responsibilities
 
-### Singleton — Config
+### 🔒 Singleton — Config
 
 Holds all hotel-wide settings. Instantiated once and shared across the system.
 
@@ -122,7 +122,7 @@ Holds all hotel-wide settings. Instantiated once and shared across the system.
 
 ---
 
-### Factory Method — Room Creation
+### 🏭 Factory Method — Room Creation
 
 Each room type has its own factory. The client depends only on RoomFactory, never on concrete room classes.
 
@@ -131,13 +131,13 @@ Each room type has its own factory. The client depends only on RoomFactory, neve
 
 | Room Type | Price (before tax) | Capacity | Features |
 |---|---|---|---|
-| Standard | $150 | 2 | TV, AC |
-| Deluxe | $350 | 5 | TV, AC, Sea View |
-| Suite | $700 | 8 | TV, AC, Sea View, Jacuzzi, Kitchen |
+| 🛏️ Standard | $150 | 2 | TV, AC |
+| 🌅 Deluxe | $350 | 5 | TV, AC, Sea View |
+| 👑 Suite | $700 | 8 | TV, AC, Sea View, Jacuzzi, Kitchen |
 
 ---
 
-### Builder — BookingRoom
+### 🏗️ Builder — BookingRoom
 
 Constructs a booking object step-by-step with optional services. Required fields are enforced in the constructor; optional services use fluent setters.
 
@@ -149,13 +149,13 @@ Constructs a booking object step-by-step with optional services. Required fields
 
 ---
 
-### Observer — Notification System
+### 👁️ Observer — Notification System
 
 EventManager maintains a list of NotificationListener subscribers. When an event fires, all subscribers are notified automatically with no conditional logic involved.
 
-**Events:** BookingEvent — CheckInEvent — PaymentEvent — CheckOutEvent
+**📅 Events:** BookingEvent — CheckInEvent — PaymentEvent — CheckOutEvent
 
-**Observers:** GuestObserver — StaffObserver — ManagerObserver
+**👥 Observers:** GuestObserver — StaffObserver — ManagerObserver
 
     eventManager.subscribe(new StaffObserver());
     eventManager.subscribe(new GuestObserver());
@@ -163,24 +163,24 @@ EventManager maintains a list of NotificationListener subscribers. When an event
 
 ---
 
-### Template Method — Hotel Workflows
+### 📋 Template Method — Hotel Workflows
 
 HotelWorkflow defines a fixed skeleton in executeWorkflow() declared as final. Subclasses implement the variant steps.
 
-**Workflow steps:**
+**🔢 Workflow steps:**
 
-1. validateBooking() — private, validates booking is not null
-2. prepareProcess() — abstract, preparation before main action
-3. performMainAction() — abstract, core check-in or check-out logic
-4. processServices() — private, logs requested meal services
-5. notifyGuest() — abstract, fires Observer events
-6. logToSystem() — abstract, logs record to system
+1. ✅ validateBooking() — private, validates booking is not null
+2. 🛠️ prepareProcess() — abstract, preparation before main action
+3. ▶️ performMainAction() — abstract, core check-in or check-out logic
+4. 🍽️ processServices() — private, logs requested meal services
+5. 🔔 notifyGuest() — abstract, fires Observer events
+6. 📝 logToSystem() — abstract, logs record to system
 
 CheckOutWorkflow additionally runs billing (Strategy) and payment (Adapter) inside performMainAction().
 
 ---
 
-### Strategy — Billing
+### 💡 Strategy — Billing
 
 BillingContext holds a BillingStrategy reference. The strategy can be switched at runtime with no if/switch needed.
 
@@ -189,38 +189,38 @@ BillingContext holds a BillingStrategy reference. The strategy can be switched a
 
 | Strategy | Calculation |
 |---|---|
-| RegularPricingStrategy | price x nights |
-| MemberDiscountStrategy | price x nights x 0.80 (20% off) |
-| SeasonalPricingStrategy | price x nights x 1.30 (+30% peak) |
+| 💵 RegularPricingStrategy | price x nights |
+| 🎫 MemberDiscountStrategy | price x nights x 0.80 (20% off) |
+| 🌞 SeasonalPricingStrategy | price x nights x 1.30 (+30% peak) |
 
 ---
 
-### Adapter — Legacy Payment Integration
+### 🔧 Adapter — Legacy Payment Integration
 
 LegacyPaymentProcessor exposes makePayment(clientName, amount). The new system expects processPayment(guestName, amount) via the PaymentProcessor interface. PaymentAdapter bridges the gap without touching the legacy code.
 
-    PaymentProcessor (interface)
+    💳 PaymentProcessor (interface)
          implements
-    PaymentAdapter.processPayment()
+    🔧 PaymentAdapter.processPayment()
          calls
-    LegacyPaymentProcessor.makePayment()
+    🏚️ LegacyPaymentProcessor.makePayment()
 
 ---
 
-## How to Run
+## ▶️ How to Run
 
-### Requirements
+### ✅ Requirements
 
-- Java 8 or higher
-- NetBeans IDE or any Java IDE or command line
+- ☕ Java 8 or higher
+- 💻 NetBeans IDE or any Java IDE or command line
 
-### Run with NetBeans
+### 🖥️ Run with NetBeans
 
-1. Clone or download the repository
-2. Open NetBeans and select File then Open Project then select the SHMS folder
-3. Right-click the project and select Run
+1. 📥 Clone or download the repository
+2. 📂 Open NetBeans and select File then Open Project then select the SHMS folder
+3. ▶️ Right-click the project and select Run
 
-### Run from Command Line
+### 🖱️ Run from Command Line
 
     cd SHMS/src
     javac -d ../out $(find . -name "*.java")
@@ -228,7 +228,7 @@ LegacyPaymentProcessor exposes makePayment(clientName, amount). The new system e
 
 ---
 
-## Sample Output
+## 📟 Sample Output
 
     === HDR Hotel ===
     Currency : USD
@@ -274,35 +274,35 @@ LegacyPaymentProcessor exposes makePayment(clientName, amount). The new system e
     [Legacy System] Payment approved.
 
     Workflow [CHECK-OUT WORKFLOW] completed successfully.
-    System completed successfully.
+    ✅ System completed successfully.
 
 ---
 
-## Technologies
+## 🛠️ Technologies
 
-- Language: Java 8+
-- IDE: Apache NetBeans
-- Architecture: Design Patterns (GoF)
-- Build: NetBeans Ant build (build.xml)
+- ☕ Language: Java 8+
+- 💻 IDE: Apache NetBeans
+- 🧩 Architecture: Design Patterns (GoF)
+- 🔨 Build: NetBeans Ant build (build.xml)
 
 ---
 
-## Course Information
+## 🎓 Course Information
 
 | | |
 |---|---|
-| Course | Software Design and Architecture Lab |
-| Project | Design Patterns Lab Final Project |
-| University | Islamic University of Gaza |
-| Faculty | Faculty of Information Technology |
-| Teaching Assistant | Maryam Skaik |
+| 📚 Course | Software Design and Architecture Lab |
+| 📝 Project | Design Patterns Lab Final Project |
+| 🏫 University | Islamic University of Gaza |
+| 🏛️ Faculty | Faculty of Information Technology |
+| 👩‍🏫 Teaching Assistant | Maryam Skaik |
 
 ---
 
-## Team Members
+## 👩‍💻 Team Members
 
 | Name |
 |---|
-| Doaa Oukal |
-| Raghad Saqallah |
-| Haneen Hamdia |
+| 💻 Doaa Oukal |
+| 💻 Raghad Saqallah |
+| 💻 Haneen Hamdia |
